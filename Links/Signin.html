@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>https://www.Koeimanguitars.com</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+    <style>
+        .whiteblock {
+
+            width: 300px;
+            height: 300px;
+            background: rgb(166, 85, 165);
+            margin-top: 100px;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .textmove {
+            margin: 0px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        .enter {
+           margin-top: 10px;
+           margin-bottom: 0;
+           font-weight: 900;
+           font-size: small;
+        }
+
+        .input {
+            width: 400px;
+        }
+
+        .inputbox {
+          width: 100%;
+          margin-top: 10px;
+          padding: 8px;
+          box-sizing: border-box;
+        }
+
+        .button {
+          width: 100%;
+          margin-top: 10px;
+          padding: 10px;
+          cursor: pointer;
+          background: rgb(255, 192, 255);
+          border: none;
+          border-radius: 30px;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+          margin: 0;
+          margin-bottom: 0px;
+          text-align: center;
+        }
+
+        body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background: rgb(255, 105, 253);
+        }
+    </style>
+    <body>
+    
+    <h1>Koeiman Guitar's</h1>
+
+    <div class="whiteblock">
+     <p class="textmove">Sign in or create account</p>
+     <p class="enter">Enter mobile number or email</p>
+
+<input type="text" id="loginInput" class="inputbox" placeholder="Email or Mobile phone">
+<button class="button" onclick="signIn()">
+    Continue
+</button>
+
+<script>
+function signIn() {
+
+    let value = document.getElementById("loginInput").value;
+
+    if (value.includes("@") || value.startsWith("+599")) {
+
+        window.location.href = "../index.html";          
+
+
+    } else {
+
+        alert("Enter Mobile number or Email");
+
+    }
+}
+</script>
+     <p class="text">By continuing, you agree to Koeiman Guitar's <a href="C0U">Conditions of Use</a> and <a href="Pn">Privacy Notice</a></p>
+
+     <P class="teskt"><a href="nh??">Need help?</a></P>
+    </div>
+</body>   
+</html>

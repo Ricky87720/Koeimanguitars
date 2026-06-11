@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>https://www.Koeimanguitars.com</title>
+
+    <style>
+
+        h1 {
+            color: rgb(255, 255, 255);
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: rgb(62, 62, 62);
+            color: rgb(0, 0, 0);
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        header {
+            background: rgb(107, 107, 107);
+            padding: 30px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        li a:hover {
+            color: white;
+            background-color: black;
+            border-radius: 5px;
+        }
+
+        .slideshow {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .zoom-container {
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+            margin: auto;
+            display: inline-block;
+        }
+
+        #guitarImage {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .spec-box {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .specs {
+            text-align: center;
+        }
+
+        button {
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <nav>
+        <ul>
+            <li><a href="Basses.html">Return</a></li>
+        </ul>
+    </nav>
+
+    <h1>Vintera III Late '60s Precision Bass</h1>
+
+</header>
+
+<div class="slideshow">
+
+    <button onclick="previousImage()">⬅</button>
+
+    <div class="zoom-container">
+        <img id="guitarImage"
+             src="images/0149380306_fen_ins_frt_1_rr.avif"
+             alt="Guitar">
+    </div>
+
+    <button onclick="nextImage()">➡</button>
+
+</div>
+
+<script>
+
+const images = [
+    "images/0149380306_fen_ins_frt_1_rr.avif",
+    "images/dfdf.avif",
+    "images/wwssws.png",
+    "images/132.webp",
+    "images/3434343.webp"
+];
+
+let currentImage = 0;
+
+function nextImage() {
+
+    currentImage++;
+
+    if (currentImage >= images.length) {
+        currentImage = 0;
+    }
+
+    document.getElementById("guitarImage").src =
+        images[currentImage];
+}
+
+function previousImage() {
+
+    currentImage--;
+
+    if (currentImage < 0) {
+        currentImage = images.length - 1;
+    }
+
+    document.getElementById("guitarImage").src =
+        images[currentImage];
+}
+
+const zoomImage = document.getElementById("guitarImage");
+
+zoomImage.addEventListener("mousemove", function(e) {
+
+    const rect = zoomImage.getBoundingClientRect();
+
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    zoomImage.style.transformOrigin = x + "% " + y + "%";
+    zoomImage.style.transform = "scale(2)";
+});
+
+zoomImage.addEventListener("mouseleave", function() {
+
+    zoomImage.style.transform = "scale(1)";
+    zoomImage.style.transformOrigin = "center";
+});
+
+</script>
+
+<div class="spec-box">
+
+    <button onclick="toggleSpecs()">Show Specs ⬇</button>
+
+    <div id="specs" class="hidden">
+
+        <ul>
+
+            <li class="specs">
+                <h2>Body</h2>
+                Body Shape: Precision Bass,
+                Fingerboard Material: Alder,
+                Body Material: Alder
+            </li>
+
+            <li class="specs">
+                <h2>Electronics</h2>
+                Middle Pickup: Vintage-Style Late '60s Split Single-Coil Precision BassBridge Pickup: Ceramic Humbucker,
+                Pickup Configuration: Split Single-Coil,
+                Controls: Master Volume, Master Tone
+            </li>
+
+            <li class="specs">
+                <h2>General</h2>
+                Color: Black,
+                Orientation: Right-Hand,
+                Series: Vintera III
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<script>
+
+function toggleSpecs() {
+
+    const specs = document.getElementById("specs");
+
+    if (specs.style.display === "none" || specs.style.display === "") {
+        specs.style.display = "block";
+    } else {
+        specs.style.display = "none";
+    }
+}
+
+</script>
+
+</body>
+</html>
